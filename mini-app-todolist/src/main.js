@@ -7,48 +7,44 @@ const notesList = document.getElementById('notesList');
 
 console.log(noteInput, notesForm, notesList);
 
+let notesArray = JSON.parse(localStorage.getItem('myNotes')) || [];
+
+console.log(notesArray);
+
+
 notesForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
     if (noteInput.value.trim() === '') {
-        errorBlankNote();
+        errorBlankNoteAlert();
         notesForm.reset();
         return;
     }
 
-    const newLi = document.createElement('li');
-    newLi.className = "flex items-center justify-between p-3 bg-slate-900/60 border border-slate-700/50 rounded-xl gap-4";
-
     const textNoteInput = capitalizeText(noteInput.value.trim());
-    const textNote = document.createElement('span');
-    textNote.textContent = textNoteInput;
-    textNote.className = "text-sm text-slate-200 break-all";
 
-    const deleteButton = document.createElement('button');
-    deleteButton.className = "text-xs font-semibold text-red-400 bg-red-500/10 hover:bg-red-500 hover:text-white px-3 py-1.5 rounded-lg transition-all";
-    deleteButton.textContent = 'Delete';
+    if (notesArray.includes(textNoteInput)) {
+        errorDuplicateNoteAlert();
+        notesForm.reset();
+        noteInput.focus();
+        return;
+    }
 
-    deleteButton.addEventListener('click', () => {
-        notesList.removeChild(newLi);
-        noteDeleted();
-        console.log(`Note Deleted! (${textNoteInput})`);
-    });
+    notesArray.push(textNoteInput);
 
-    newLi.appendChild(textNote);
-    newLi.appendChild(deleteButton);
+    localStorage.setItem('myNotes', JSON.stringify(notesArray));
 
-    notesList.appendChild(newLi);
+    renderNotes();
 
-    noteAdded();
+    noteAddedAlert();
 
     console.log(`Note Added! (${textNoteInput})`);
 
     notesForm.reset();
     noteInput.focus();
-
 });
 
-function errorBlankNote() {
+function errorBlankNoteAlert() {
     Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -56,7 +52,7 @@ function errorBlankNote() {
     });
 }
 
-function noteAdded() {
+function noteAddedAlert() {
     Swal.fire({
         toast: true,
         position: "top-end",
@@ -70,12 +66,24 @@ function noteAdded() {
     });
 }
 
-function noteDeleted() {
+function noteDeletedAlert() {
     Swal.fire({
         toast: true,
         position: "top-end",
         icon: "info",
         title: "Note Deleted",
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+        background: '#1e293b',
+        color: '#f1f5f9',
+    });
+}
+
+function errorDuplicateNoteAlert() {
+    Swal.fire({
+        icon: "warning",
+        title: "This note already exists",
         showConfirmButton: false,
         timer: 2000,
         timerProgressBar: true,
@@ -99,3 +107,39 @@ function capitalizeText(text) {
         return oracionLimpia.charAt(0).toUpperCase() + oracionLimpia.slice(1);
     }).join('. '); // We rejoin the entire arrangement with a period and a space
 }
+
+function renderNotes() {
+    notesList.innerHTML = '';
+
+    for (const note of notesArray) {
+        const newLi = document.createElement('li');
+        newLi.className = "flex items-center justify-between p-3 bg-slate-900/60 border border-slate-700/50 rounded-xl gap-4";
+
+        const oneNote = capitalizeText(note.trim());
+        const textNote = document.createElement('span');
+        textNote.textContent = oneNote;
+        textNote.className = "text-sm text-slate-200 break-all";
+
+        const deleteButton = document.createElement('button');
+        deleteButton.className = "text-xs font-semibold text-red-400 bg-red-500/10 hover:bg-red-500 hover:text-white px-3 py-1.5 rounded-lg transition-all";
+        deleteButton.textContent = 'Delete';
+
+        deleteButton.addEventListener('click', () => {
+            notesList.removeChild(newLi);
+
+            notesArray = notesArray.filter(n => n !== oneNote);
+
+            localStorage.setItem('myNotes', JSON.stringify(notesArray));
+
+            noteDeletedAlert();
+            console.log(`Note Deleted! (${oneNote})`);
+        });
+
+        newLi.appendChild(textNote);
+        newLi.appendChild(deleteButton);
+
+        notesList.appendChild(newLi);
+    }
+}
+
+renderNotes();
