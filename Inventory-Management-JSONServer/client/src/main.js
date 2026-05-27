@@ -1,16 +1,35 @@
 // Creating a map, where the key is a number and the values ​​are objects that in turn contain both a key and a value
-let inventoryMap
+let inventoryMap = new Map();
 
 // Lógica para consumir API
 const endpoint = "http://localhost:3000/products"
 // Función para traer productos de la API
 async function getProducts() {
-    const response = await fetch(endpoint);
+    try {
+        const response = await fetch(endpoint);
 
-    const apiProducts = await response.json();
+        if (response.ok === false) {
+            alert("Error en el sistema. Intente más tarde");
+        };
 
-    console.log(apiProducts);
-    
+        const apiProducts = await response.json();
+
+        // Ciclo para crar el Map
+        apiProducts.forEach(apiProduct => {
+            const productID = Number(apiProduct.IDProduct);
+
+            const productDetails = {
+                name: apiProduct.name,
+                price: apiProduct.price,
+                category: apiProduct.category
+            };
+
+            inventoryMap.set(productID, productDetails);
+        });
+
+    } catch (error) {
+        alert("Error en el sistema. Intente más tarde");
+    }
 }
 
 getProducts();
@@ -149,10 +168,19 @@ inputProductForm.addEventListener('submit', (event) => {
     const inputProdCategory = document.getElementById('prodCategory');
 
     inventoryMap.set(Number(inputProdID.value), {
-        name: inputProdName.value,
+        name: capitalizeWords(inputProdName.value),
         price: Number(inputProdPrice.value),
         category: inputProdCategory.value
     });
+
+    const newProduct = {
+        IDProduct: String(inputProdID.value).trim(),
+        name: capitalizeWords(inputProdName.value.trim()),
+        price: Number(inputProdPrice.value),
+        category: inputProdCategory.value.trim()
+    };    
+
+    postProduct(newProduct);
 
     alert("✨ Product successfully registered!")
 
@@ -239,7 +267,7 @@ function searchName(pInputSearchName) {
 function searchCategory(pInputSearchCartegory) {
 
     if (pInputSearchCartegory !== '') {
-        inventoryMap.forEach ((product, id) => {
+        inventoryMap.forEach((product, id) => {
 
             if (product.category.includes(pInputSearchCartegory)) {
                 printHtml(id);
@@ -250,7 +278,7 @@ function searchCategory(pInputSearchCartegory) {
             }
         });
     }
-    
+
 }
 
 // Function to capitalize text
@@ -286,10 +314,29 @@ function printHtml(params) {
 }
 
 // Function to indicate that the product has not been entered
-function foundProduct (params) {
+function foundProduct(params) {
     if (!params === true) {
         textProductsDetails.innerText = '❌ No products found matching your search criteria.';
     } else {
         textProductsDetails.innerText = '';
+    }
+}
+
+async function postProduct(params) {
+    try {
+        const response = await fetch (endpoint, {
+            method : 'POST',
+            headers : {
+                "Content-Type": "application/json"
+            },
+            body : JSON.stringify(params)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error al guardar en el servidor: ${response.status}`);
+        }
+
+    } catch (error) {
+        alert('Error al subir al JSON Server');
     }
 }
