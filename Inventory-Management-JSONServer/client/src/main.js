@@ -167,22 +167,14 @@ inputProductForm.addEventListener('submit', (event) => {
     const inputProdPrice = document.getElementById('prodPrice');
     const inputProdCategory = document.getElementById('prodCategory');
 
-    inventoryMap.set(Number(inputProdID.value), {
-        name: capitalizeWords(inputProdName.value),
-        price: Number(inputProdPrice.value),
-        category: inputProdCategory.value
-    });
-
     const newProduct = {
         IDProduct: String(inputProdID.value).trim(),
         name: capitalizeWords(inputProdName.value.trim()),
         price: Number(inputProdPrice.value),
         category: inputProdCategory.value.trim()
-    };    
+    };
 
     postProduct(newProduct);
-
-    alert("✨ Product successfully registered!")
 
     showSection('mainMenu');
 
@@ -324,17 +316,25 @@ function foundProduct(params) {
 
 async function postProduct(params) {
     try {
-        const response = await fetch (endpoint, {
-            method : 'POST',
-            headers : {
+        const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: {
                 "Content-Type": "application/json"
             },
-            body : JSON.stringify(params)
+            body: JSON.stringify(params)
         });
 
         if (!response.ok) {
             throw new Error(`Error al guardar en el servidor: ${response.status}`);
         }
+
+        inventoryMap.set(params.IDProduct, {
+            name: params.name,
+            price: params.price,
+            category: params.category
+        });
+
+        alert("✨ Product successfully registered!")
 
     } catch (error) {
         alert('Error al subir al JSON Server');
