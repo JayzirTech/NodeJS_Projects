@@ -1,0 +1,64 @@
+{
+    "products": [
+        {
+            "id": "1001",
+            "name": "Cuaderno Rayado 100H",
+            "price": 5500,
+            "category": "Stationery"
+        },
+        {
+            "id": "1002",
+            "name": "Caja de Colores x24",
+            "price": 12000,
+            "category": "Stationery"
+        },
+        {
+            "id": "2001",
+            "name": "Pegante en Barra 40g",
+            "price": 3500,
+            "category": "Office supplies"
+        },
+        {
+            "id": "2002",
+            "name": "Resaltador Fluorescente",
+            "price": 2800,
+            "category": "Office supplies"
+        },
+        {
+            "id": "3001",
+            "name": "Cartulina de Colores",
+            "price": 800,
+            "category": "Crafts"
+        },
+        {
+            "id": "3002",
+            "name": "Silicona Líquida 250ml",
+            "price": 8500,
+            "category": "Crafts"
+        },
+        {
+            "id": "4001",
+            "name": "Carpeta de Presentación",
+            "price": 1500,
+            "category": "Others"
+        },
+        {
+            "id": "4002",
+            "name": "Ganchos Legajadores x20",
+            "price": 2200,
+            "category": "Others"
+        },
+        {
+            "id": "5001",
+            "name": "Calculadora Científica",
+            "price": 45000,
+            "category": "Technology"
+        },
+        {
+            "id": "5002",
+            "name": "Memoria USB 64GB",
+            "price": 28000,
+            "category": "Technology"
+        }
+    ]
+}

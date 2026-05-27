@@ -1,0 +1,295 @@
+@use "sass:color";
+
+// Variables de color - Estilo Miscelánea (Beige & Amigable)
+$bg-color: #fdfaf5;
+$primary-beige: #f5f1e6;
+$accent-brown: #8d775f;
+$text-dark: #4a4238;
+$card-white: #ffffff;
+$success-green: #7da186;
+$shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scrollbar-gutter: stable; // Reserva el espacio del scroll para que nada se mueva
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: $bg-color;
+    color: $text-dark;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    line-height: 1.6;
+    width: 100%;
+}
+
+// Botón de Regreso
+.back-link {
+    position: absolute;
+    left: 15%;
+    gap: 8px;
+    text-decoration: none;
+    color: $accent-brown;
+    font-weight: 600;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: translateX(-5px);
+    }
+}
+
+header {
+    text-align: center;
+    margin: 40px 0;
+
+    h1 {
+        font-size: 2.2rem;
+        color: $accent-brown;
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: color.scale($text-dark, $lightness: 20%);
+    }
+}
+
+// Menú de Botones
+nav {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .menu-btn {
+        background-color: $card-white;
+        border: 2px solid $primary-beige;
+        padding: 30px;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 180px;
+        box-shadow: $shadow;
+
+        .icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        span {
+            font-weight: 700;
+            color: $accent-brown;
+            font-size: 1rem;
+        }
+
+        &:hover {
+            transform: translateY(-10px);
+            border-color: $accent-brown;
+            background-color: $primary-beige;
+        }
+    }
+}
+
+// Secciones de contenido
+.content-section {
+    display: none;
+    width: 100%;
+    max-width: 35rem;
+    background: $card-white;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: $shadow;
+
+    &.active {
+        display: block;
+        animation: fadeIn 0.5s ease;
+        
+    }
+
+    h2 {
+        margin-bottom: 25px;
+        color: $accent-brown;
+        text-align: center;
+        font-size: 1.5rem;
+    }
+}
+
+// Formularios
+.form-group {
+    margin-bottom: 20px;
+    width: 100%;
+    border: none;
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+
+    input,
+    select {
+        width: 100%;
+        padding: 12px 15px;
+        border: 2px solid $primary-beige;
+        border-radius: 12px;
+        font-family: inherit;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.3s;
+
+        &:focus {
+            border-color: $accent-brown;
+        }
+    }
+
+    span{
+        font-family: sans-serif;
+        color: red;
+        font-size: smaller;
+        margin-left: .7rem;
+        margin-top: .5rem;
+    }
+}
+
+// Quitar flechas en navegadores basados en Chrome, Safari, Edge y Opera
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+// Quitar flechas en Firefox
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+// Botones
+.button-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    font-family: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: filter 0.3s;
+
+    &-primary {
+        background-color: $accent-brown;
+        color: white;
+    }
+
+    &-secondary {
+        background-color: $primary-beige;
+        color: $accent-brown;
+    }
+
+    &:hover {
+        filter: brightness(0.9);
+    }
+}
+
+// Búsqueda
+.search-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid $primary-beige;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+
+    &:focus {
+        border-color: $accent-brown;
+        background-color: color.scale($primary-beige, $lightness: 2%);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    &::placeholder {
+        color: color.scale($text-dark, $lightness: 30%);
+        font-style: italic;
+    }
+}
+
+.result-area {
+    background-color: $bg-color;
+    padding: 20px;
+    border-radius: 15px;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed $primary-beige;
+    margin-top: 30px;
+
+    .placeholder-text {
+        color: color.scale($text-dark, $lightness: 30%);
+        font-style: italic;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#searchForm {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+
+    .btn-primary {
+        margin-top: 10px;
+        align-self: center;
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+.search-input:disabled,
+select:disabled {
+    background-color: #eee;
+    border-color: #ccc;
+    color: #999;
+}
+
+#productList{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    list-style-type: none;
+
+    li{
+        border-bottom: 2px solid $primary-beige;
+        box-shadow: $shadow;
+    }
+}
