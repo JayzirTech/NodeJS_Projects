@@ -69,13 +69,6 @@
       "price": 28000,
       "category": "Technology",
       "id": "DcYi9N3md1s"
-    },
-    {
-      "IDProduct": "1003",
-      "name": "Cuaderno Rayado 50h",
-      "price": 3500,
-      "category": "Stationery",
-      "id": "sGm6f6G7U2M"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

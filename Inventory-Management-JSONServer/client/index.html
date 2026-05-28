@@ -12,15 +12,16 @@
 
     <header>
         <h1>Inventory Management</h1>
+        <p id="dailyCounter" class="daily-counter">Products registered today: <strong id="counter"></strong></p>
         <p id="textSelectOption">Select an option to manage the miscellaneous products</p>
     </header>
 
     <nav id="mainMenu">
-        <button class="menu-btn" onclick="showSection('registerSection')">
+        <button id="registrationButton" class="menu-btn" onclick="showSection('registerSection')">
             <span class="icon">📦</span>
             <span>Register Product</span>
         </button>
-        <button class="menu-btn" onclick="showSection('searchSection')">
+        <button id="searchButton" class="menu-btn" onclick="showSection('searchSection')">
             <span class="icon">🔍</span>
             <span>Search Product</span>
         </button>
@@ -104,10 +105,12 @@
         </footer>
     </section>
 
-    <section id="offlineStatus" style="display: none; text-align: center; margin-top: 40px; animation: fadeIn 0.5s ease;">
-        <span style="font-size: 5rem; display: block; filter: grayscale(0.2); margin-bottom: 10px;">🔌❌</span>
-        <h3 style="color: #8d775f; font-weight: 600; font-size: 1.5rem;">Servidor fuera de línea</h3>
-        <p style="color: #a09384; font-style: italic; margin-top: 5px;">No se pudo establecer conexión con la base de datos. Verifica el JSON Server.</p>
+    <section id="offlineStatus" class="offline-container">
+        <span class="offline-icon">🔌❌</span>
+        <h3 class="offline-title">Offline server</h3>
+        <p class="offline-text">
+            A connection to the database could not be established. Please check the JSON server, then reload the page.
+        </p>
     </section>
 
     <script src="./src/main.js"></script>
