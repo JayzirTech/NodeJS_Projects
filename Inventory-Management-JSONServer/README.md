@@ -7,7 +7,7 @@ This project is a JSON server for an inventory management system. It uses the `j
 ## Installation
 
 1. Clone the repository
-2. Open a terminal and navigate to the api folder
+2. Open a terminal and navigate to the `api folder`
 3. Run `npm install` to install the required dependencies
 4. Write the following command in the terminal to start the JSON server: `npx json-server --watch database/db.json`
 5. Open the index.html file in a web browser and you can start using the inventory management system
