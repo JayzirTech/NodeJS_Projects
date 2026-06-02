@@ -1,9 +1,9 @@
-<section>
-    <h1>Contacto</h1>
-    <form id="contact-form">
-        <input type="text" placeholder="Nombre" required>
-        <input type="email" placeholder="Correo" required>
-        <textarea placeholder="Mensaje"></textarea>
-        <button type="submit">Enviar</button>
+<section class="display flex flex-col items-center w-full">
+    <h1 class="text-3xl text-center pb-4">Contact</h1>
+    <form id="contact-form" class="flex flex-col gap-4 w-1/4">
+        <input type="text" class="p-2 border border-gray-300 rounded hover:border-cyan-500 focus:border-cyan-500" placeholder="Name" required>
+        <input type="email" class="p-2 border border-gray-300 rounded hover:border-cyan-500 focus:border-cyan-500" placeholder="Email" required>
+        <textarea placeholder="Message" class="p-2 border border-gray-300 rounded hover:border-cyan-500 focus:border-cyan-500"></textarea>
+        <button type="submit" class="p-2 border border-gray-300 rounded bg-green-500/30 hover:border-cyan-500 hover:bg-green-500">Send</button>
     </form>
 </section>

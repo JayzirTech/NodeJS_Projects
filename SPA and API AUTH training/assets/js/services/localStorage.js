@@ -1,5 +1,7 @@
 export function saveLocalStorage(apiData) {
-    localStorage.setItem('apiData', JSON.stringify(apiData));
+    if (apiData!==undefined) {
+        localStorage.setItem('apiData', JSON.stringify(apiData));
+    }
 }
 
 export function loadLocalStorage() {

@@ -17,6 +17,8 @@ function initializeFormEvents() {
 }
 
 function handleSubmit(event) {
+    const form = event.target;
     event.preventDefault();
-    alert('Formulario enviado correctamente');
+    alert('Form submitted!');
+    form.reset();
 }
