@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+.page-404 {
+    min-height: calc(100vh - 112px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 3rem 1.5rem;
+    text-align: center;
+    background: radial-gradient(circle at top, rgba(34, 211, 238, 0.15), transparent 35%),
+                linear-gradient(180deg, #0f172a 0%, #020617 100%);
+    color: #e2e8f0;
+    border-radius: 1.5rem;
+    box-shadow: 0 20px 60px rgba(15, 23, 42, 0.55);
+}
+
+.page-404 h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin: 0;
+    color: #7dd3fc;
+    letter-spacing: -0.03em;
+}
+
+/* Animación para eliminar cards */
+.fade-out {
+    animation: fadeOut 0.3s ease-out forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+}

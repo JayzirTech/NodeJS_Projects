@@ -1,0 +1,35 @@
+{
+  "name": "spa-rick-morty",
+  "version": "1.0.0",
+  "description": "SPA con JavaScript Vanilla, Routing SPA, Axios y arquitectura modular.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "spa",
+    "javascript",
+    "vanilla-js",
+    "axios",
+    "routing",
+    "rick-and-morty",
+    "frontend",
+    "single-page-application"
+  ],
+  "author": "Devis M",
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.0",
+    "axios": "^1.9.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^4.3.0",
+    "vite": "^6.3.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miscellaneous Inventory - Product Management</title>
+    <link rel="stylesheet" href="./src/styles/css/styles.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Inventory Management</h1>
+        <p id="dailyCounter" class="daily-counter">Products registered today: <strong id="counter"></strong></p>
+        <p id="textSelectOption">Select an option to manage the miscellaneous products</p>
+    </header>
+
+    <nav id="mainMenu">
+        <button id="registrationButton" class="menu-btn" onclick="showSection('registerSection')">
+            <span class="icon">📦</span>
+            <span>Register Product</span>
+        </button>
+        <button id="searchButton" class="menu-btn" onclick="showSection('searchSection')">
+            <span class="icon">🔍</span>
+            <span>Search Product</span>
+        </button>
+    </nav>
+
+    <section id="registerSection" class="content-section">
+        <h2>Register a New Product</h2>
+        <form id="productForm">
+            <fieldset class="form-group">
+                <label for="prodID">Product's ID</label>
+                <input type="text" id="prodID" placeholder="Ex: 1111" pattern="[0-9]{4}" maxlength="4"
+                    oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,4);" required>
+                <span id="IDVerification"></span>
+            </fieldset>
+
+            <fieldset class="form-group">
+                <label for="prodName">Product's Name</label>
+                <input type="text" id="prodName" placeholder="Ex: Lined Notebook" required>
+                <span id="nameVerification"></span>
+            </fieldset>
+
+            <fieldset class="form-group">
+                <label for="prodPrice">Price ($)</label>
+                <input type="number" id="prodPrice" placeholder="Ex: 5500" required>
+            </fieldset>
+
+            <fieldset class="form-group">
+                <label for="prodCategory">Category</label>
+                <select id="prodCategory" required>
+                    <option value="">Select a Category</option>
+                    <option value="Stationery">Stationery</option>
+                    <option value="Office supplies">Office supplies</option>
+                    <option value="Crafts">Crafts</option>
+                    <option value="Technology">Technology</option>
+                    <option value="Others">Others</option>
+                </select>
+            </fieldset>
+
+            <footer class="button-group">
+                <button type="submit" class="btn btn-primary" id="buttonSubmitSaveProduct">Save Product</button>
+                <button type="button" class="btn btn-secondary" onclick="showSection('mainMenu')">Cancel</button>
+            </footer>
+        </form>
+    </section>
+
+    <section id="searchSection" class="content-section">
+        <h2>Inventory Search</h2>
+        <form id="searchForm">
+
+            <input type="text" id="searchInputID" class="search-input search-field" placeholder="Enter Product ID..."
+                pattern="[0-9]{4}" maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,4);"
+                required>
+            <input type="text" id="searchInputName" class="search-input search-field"
+                placeholder="Enter Product Name...">
+
+            <fieldset class="form-group">
+                <label for="searchCategory">Category</label>
+                <select id="searchCategory">
+                    <option value="">Select a Category</option>
+                    <option value="Stationery">Stationery</option>
+                    <option value="Office supplies">Office supplies</option>
+                    <option value="Crafts">Crafts</option>
+                    <option value="Technology">Technology</option>
+                    <option value="Others">Others</option>
+                    <option value="All">All</option>
+                </select>
+            </fieldset>
+        </form>
+
+        <output id="searchResult" class="result-area">
+            <p id="placeholderText" class="placeholder-text">
+                Results will appear here once you start searching.
+            <ul id="productList">
+
+            </ul>
+            </p>
+        </output>
+
+        <footer class="button-group">
+            <button type="button" class="btn btn-secondary" onclick="showSection('mainMenu')">Go to Menu</button>
+        </footer>
+    </section>
+
+    <section id="offlineStatus" class="offline-container">
+        <span class="offline-icon">🔌❌</span>
+        <h3 class="offline-title">Offline server</h3>
+        <p class="offline-text">
+            A connection to the database could not be established. Please check the JSON server, then reload the page.
+        </p>
+    </section>
+
+    <script src="./src/main.js"></script>
+</body>
+
+</html>
