@@ -106,3 +106,5 @@ Para ejecutar el proyecto, primero se debe instalar las dependencias y luego rea
 npm install
 npm run dev
 ```
+
+.

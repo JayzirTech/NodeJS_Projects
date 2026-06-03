@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registro | TaskFlowSPA</title>
-  </head>
-  <body class="min-h-screen bg-gradient-to-b from-sky-50 via-white to-blue-100 text-slate-800">
+export function register(){
+  return `
+  <div class="min-h-screen bg-gradient-to-b from-sky-50 via-white to-blue-100 text-slate-800">
     <main class="grid min-h-screen lg:grid-cols-[0.95fr_1.05fr]">
       <section class="hidden border-r border-blue-100 bg-blue-600 p-10 text-white lg:flex lg:flex-col lg:justify-between">
-        <a class="text-xl font-black tracking-tight" href="/src/views/home.html">TaskFlowSPA</a>
+        <a class="text-xl font-black tracking-tight" href="/home">TaskFlowSPA</a>
         <div>
           <p class="text-sm font-semibold uppercase tracking-[0.3em] text-blue-100">Nuevo usuario</p>
           <h1 class="mt-4 text-5xl font-black tracking-tight">Crea tu cuenta y empieza a organizar tu flujo.</h1>
@@ -26,7 +21,7 @@
               <p class="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">Registro</p>
               <h2 class="mt-2 text-3xl font-black text-slate-900">Crear cuenta</h2>
             </div>
-            <a class="rounded-full border border-blue-200 px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-50" href="/src/views/login.html">Ya tengo cuenta</a>
+            <a class="rounded-full border border-blue-200 px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-50" href="/login">Ya tengo cuenta</a>
           </div>
 
           <form class="mt-8 grid gap-5">
@@ -60,14 +55,14 @@
               </div>
             </div>
 
-            <a class="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-5 py-3 text-sm font-bold text-white hover:bg-blue-500" href="/src/views/login.html">
+            <a class="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-5 py-3 text-sm font-bold text-white hover:bg-blue-500" href="/login">
               Registrarme
             </a>
           </form>
         </div>
       </section>
     </main>
-
-    <script type="module" src="../main.js"></script>
-  </body>
-</html>
+  </div>
+  `
+}
+  

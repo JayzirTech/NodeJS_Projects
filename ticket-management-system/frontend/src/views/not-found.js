@@ -1,0 +1,17 @@
+export function notFound(){
+  return `
+  <div class="min-h-screen bg-gradient-to-b from-sky-50 via-white to-blue-100 text-slate-800">
+    <main class="flex min-h-screen items-center justify-center px-6 py-10">
+      <section class="w-full max-w-2xl rounded-[2rem] border border-blue-100 bg-white p-10 text-center shadow-xl shadow-blue-100/70">
+        <p class="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">Navegation error</p>
+        <h1 class="mt-4 text-6xl font-black tracking-tight text-slate-900">404</h1>
+        <p class="mt-4 text-lg text-slate-600">The view you are trying to open does not exist or is not yet available within the project.</p>
+        <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+          <a class="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-5 py-3 text-sm font-bold text-white hover:bg-blue-500" href="/home">Go to Home</a>
+          <a class="inline-flex items-center justify-center rounded-2xl border border-blue-200 bg-white px-5 py-3 text-sm font-bold text-blue-700 hover:bg-blue-50" href="/src/views/login.html">Volver al login</a>
+        </div>
+      </section>
+    </main>
+  </div>
+`
+}

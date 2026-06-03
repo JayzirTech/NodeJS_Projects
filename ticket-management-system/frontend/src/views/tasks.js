@@ -1,19 +1,14 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mis tareas | TaskFlowSPA</title>
-  </head>
-  <body class="min-h-screen bg-sky-50 text-slate-800">
+export function tasks(){
+  return `
+  <div class="min-h-screen bg-sky-50 text-slate-800">
     <header class="border-b border-blue-100 bg-white/90 backdrop-blur">
       <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a class="text-xl font-black text-blue-900" href="/src/views/home.html">TaskFlowSPA</a>
+        <a class="text-xl font-black text-blue-900" href="/home">TaskFlowSPA</a>
         <nav class="hidden gap-3 md:flex">
-          <a class="rounded-full px-4 py-2 text-sm font-semibold text-slate-600 hover:bg-blue-50 hover:text-blue-700" href="/src/views/dashboard.html">Dashboard</a>
-          <a class="rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white" href="/src/views/tasks.html">Tareas</a>
-          <a class="rounded-full px-4 py-2 text-sm font-semibold text-slate-600 hover:bg-blue-50 hover:text-blue-700" href="/src/views/profile.html">Perfil</a>
-          <a class="rounded-full px-4 py-2 text-sm font-semibold text-slate-600 hover:bg-blue-50 hover:text-blue-700" href="/src/views/admin.html">Admin</a>
+          <a class="rounded-full px-4 py-2 text-sm font-semibold text-slate-600 hover:bg-blue-50 hover:text-blue-700" href="/dashboard">Dashboard</a>
+          <a class="rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white" href="/tasks">Tareas</a>
+          <a class="rounded-full px-4 py-2 text-sm font-semibold text-slate-600 hover:bg-blue-50 hover:text-blue-700" href="/profile">Perfil</a>
+          <a class="rounded-full px-4 py-2 text-sm font-semibold text-slate-600 hover:bg-blue-50 hover:text-blue-700" href="/admin">Admin</a>
         </nav>
       </div>
     </header>
@@ -25,7 +20,7 @@
           <h1 class="mt-3 text-4xl font-black tracking-tight">Mis tareas</h1>
           <p class="mt-4 max-w-2xl text-blue-50">Vista principal para listar, editar y eliminar las tareas del usuario autenticado.</p>
         </div>
-        <a class="inline-flex items-center justify-center rounded-2xl bg-white px-5 py-3 text-sm font-bold text-blue-700 hover:bg-blue-50" href="/src/views/task-form.html">
+        <a class="inline-flex items-center justify-center rounded-2xl bg-white px-5 py-3 text-sm font-bold text-blue-700 hover:bg-blue-50" href="/tasksForm">
           Crear tarea
         </a>
       </section>
@@ -39,8 +34,8 @@
               <p class="mt-3 max-w-2xl text-slate-600">Documentar la estructura por capas y dejar claro el alcance base del proyecto.</p>
             </div>
             <div class="flex gap-3">
-              <a class="rounded-full border border-blue-200 px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-50" href="/src/views/task-form.html">Editar</a>
-              <a class="rounded-full border border-blue-200 px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-50" href="/src/views/tasks.html">Eliminar</a>
+              <a class="rounded-full border border-blue-200 px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-50" href="/tasksForm">Editar</a>
+              <a class="rounded-full border border-blue-200 px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-50" href="/tasks">Eliminar</a>
             </div>
           </div>
         </article>
@@ -53,14 +48,14 @@
               <p class="mt-3 max-w-2xl text-slate-600">Crear las pantallas base del proyecto para explicar la futura navegacion SPA.</p>
             </div>
             <div class="flex gap-3">
-              <a class="rounded-full border border-blue-200 px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-50" href="/src/views/task-form.html">Editar</a>
-              <a class="rounded-full border border-blue-200 px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-50" href="/src/views/tasks.html">Eliminar</a>
+              <a class="rounded-full border border-blue-200 px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-50" href="/tasksForm">Editar</a>
+              <a class="rounded-full border border-blue-200 px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-50" href="/tasks">Eliminar</a>
             </div>
           </div>
         </article>
       </section>
     </main>
-
-    <script type="module" src="../main.js"></script>
-  </body>
-</html>
+  </div>
+  `
+}
+  

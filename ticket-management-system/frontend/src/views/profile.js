@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mi perfil | TaskFlowSPA</title>
-  </head>
-  <body class="min-h-screen bg-sky-50 text-slate-800">
+export function profile(){
+  return `
+  <div class="min-h-screen bg-sky-50 text-slate-800">
     <header class="border-b border-blue-100 bg-white/90 backdrop-blur">
       <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-        <a class="text-xl font-black text-blue-900" href="/src/views/home.html">TaskFlowSPA</a>
+        <a class="text-xl font-black text-blue-900" href="/home">TaskFlowSPA</a>
         <nav class="hidden gap-3 md:flex">
-          <a class="rounded-full px-4 py-2 text-sm font-semibold text-slate-600 hover:bg-blue-50 hover:text-blue-700" href="/src/views/dashboard.html">Dashboard</a>
-          <a class="rounded-full px-4 py-2 text-sm font-semibold text-slate-600 hover:bg-blue-50 hover:text-blue-700" href="/src/views/tasks.html">Tareas</a>
-          <a class="rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white" href="/src/views/profile.html">Perfil</a>
+          <a class="rounded-full px-4 py-2 text-sm font-semibold text-slate-600 hover:bg-blue-50 hover:text-blue-700" href="/dashboard">Dashboard</a>
+          <a class="rounded-full px-4 py-2 text-sm font-semibold text-slate-600 hover:bg-blue-50 hover:text-blue-700" href="/tasks">Tareas</a>
+          <a class="rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white" href="/profile">Perfil</a>
         </nav>
       </div>
     </header>
@@ -40,14 +35,14 @@
               <input id="password-new" type="password" placeholder="Actualiza tu contrasena" class="w-full rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:border-blue-400 focus:outline-none" />
             </div>
             <div class="flex flex-col gap-3 pt-2 sm:flex-row">
-              <a class="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-5 py-3 text-sm font-bold text-white hover:bg-blue-500" href="/src/views/profile.html">Guardar cambios</a>
-              <a class="inline-flex items-center justify-center rounded-2xl border border-blue-200 bg-white px-5 py-3 text-sm font-bold text-blue-700 hover:bg-blue-50" href="/src/views/login.html">Eliminar mi cuenta</a>
+              <a class="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-5 py-3 text-sm font-bold text-white hover:bg-blue-500" href="/profile">Guardar cambios</a>
+              <a class="inline-flex items-center justify-center rounded-2xl border border-blue-200 bg-white px-5 py-3 text-sm font-bold text-blue-700 hover:bg-blue-50" href="/login">Eliminar mi cuenta</a>
             </div>
           </form>
         </section>
       </section>
     </main>
-
-    <script type="module" src="../main.js"></script>
-  </body>
-</html>
+  </div>
+  `
+}
+  
