@@ -5,7 +5,7 @@ export function login(){
       <section class="flex items-center justify-center px-6 py-10">
         <div class="w-full max-w-xl rounded-[2rem] border border-blue-100 bg-white p-8 shadow-xl shadow-blue-100/70">
           <div class="flex items-center justify-between">
-            <a class="text-xl font-black tracking-tight text-blue-900" href="/home">TaskFlowSPA</a>
+            <div class="text-xl font-black tracking-tight text-blue-900">TMS-SPA</div>
             <a class="rounded-full border border-blue-200 px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-50" href="/register">Registrarse</a>
           </div>
 
@@ -33,7 +33,7 @@ export function login(){
 
       <section class="hidden bg-blue-600 p-10 text-white lg:flex lg:flex-col lg:justify-center">
         <div class="mx-auto max-w-lg">
-          <p class="text-sm font-semibold uppercase tracking-[0.3em] text-blue-100">TaskFlowSPA</p>
+          <p class="text-sm font-semibold uppercase tracking-[0.3em] text-blue-100">TMS-SPA</p>
           <h2 class="mt-4 text-5xl font-black tracking-tight">Una experiencia limpia para aprender una primera SPA.</h2>
           <ul class="mt-8 space-y-4 text-lg leading-8 text-blue-50">
             <li>Autenticacion simplificada con localStorage.</li>

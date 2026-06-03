@@ -3,7 +3,7 @@ export function register(){
   <div class="min-h-screen bg-gradient-to-b from-sky-50 via-white to-blue-100 text-slate-800">
     <main class="grid min-h-screen lg:grid-cols-[0.95fr_1.05fr]">
       <section class="hidden border-r border-blue-100 bg-blue-600 p-10 text-white lg:flex lg:flex-col lg:justify-between">
-        <a class="text-xl font-black tracking-tight" href="/home">TaskFlowSPA</a>
+        <div class="text-xl font-black tracking-tight">TMS-SPA</div>
         <div>
           <p class="text-sm font-semibold uppercase tracking-[0.3em] text-blue-100">Nuevo usuario</p>
           <h1 class="mt-4 text-5xl font-black tracking-tight">Crea tu cuenta y empieza a organizar tu flujo.</h1>
@@ -41,18 +41,9 @@ export function register(){
               <input id="register-email" type="email" placeholder="usuario@taskflow.com" class="w-full rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:border-blue-400 focus:outline-none" />
             </div>
 
-            <div class="grid gap-5 md:grid-cols-2">
-              <div>
-                <label class="mb-2 block text-sm font-medium text-slate-700" for="register-password">Contrasena</label>
-                <input id="register-password" type="password" placeholder="Crea una contrasena" class="w-full rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:border-blue-400 focus:outline-none" />
-              </div>
-              <div>
-                <label class="mb-2 block text-sm font-medium text-slate-700" for="register-role">Rol</label>
-                <select id="register-role" class="w-full rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 text-slate-900 focus:border-blue-400 focus:outline-none">
-                  <option>USER</option>
-                  <option>ADMIN</option>
-                </select>
-              </div>
+            <div>
+              <label class="mb-2 block text-sm font-medium text-slate-700" for="register-password">Contrasena</label>
+              <input id="register-password" type="password" placeholder="Crea una contrasena" class="w-full rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:border-blue-400 focus:outline-none" />
             </div>
 
             <a class="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-5 py-3 text-sm font-bold text-white hover:bg-blue-500" href="/login">

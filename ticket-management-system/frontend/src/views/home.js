@@ -1,17 +1,5 @@
 export function home(){
   return `
-  <div class="min-h-screen bg-gradient-to-b from-sky-50 via-white to-blue-100 text-slate-800">
-    <header class="border-b border-blue-100 bg-white/90 backdrop-blur">
-      <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a class="text-xl font-black tracking-tight text-blue-900" href="/home">TaskFlowSPA</a>
-        <nav class="hidden items-center gap-3 md:flex">
-          <a class="rounded-full px-4 py-2 text-sm font-semibold text-slate-600 hover:bg-blue-50 hover:text-blue-700" href="/home">Home</a>
-          <a class="rounded-full px-4 py-2 text-sm font-semibold text-slate-600 hover:bg-blue-50 hover:text-blue-700" href="/login">Login</a>
-          <a class="rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-500" href="/register">Registrarse</a>
-        </nav>
-      </div>
-    </header>
-
     <main class="mx-auto max-w-6xl px-6 py-14">
       <section class="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
         <div>
@@ -20,7 +8,7 @@ export function home(){
             Una plataforma clara para gestionar tareas, usuarios y productividad.
           </h1>
           <p class="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-            TaskFlowSPA presenta el recorrido principal del proyecto con una interfaz uniforme, amable y lista para convertirse
+            TMS-SPA presenta el recorrido principal del proyecto con una interfaz uniforme, amable y lista para convertirse
             luego en una SPA real con autenticacion, roles, permisos y CRUD de tareas.
           </p>
           <div class="mt-8 flex flex-col gap-3 sm:flex-row">
