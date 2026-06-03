@@ -1,0 +1,55 @@
+{
+  "tickets": [
+    {
+      "title": "Fallo de conexión con la API de inventario",
+      "description": "El endpoint de productos está retornando un error 500 al intentar hacer peticiones POST desde el formulario de registro.",
+      "status": "pending",
+      "priority": "high",
+      "createdBy": "cliente-01",
+      "assignedTo": null,
+      "clientName": "cliente-01",
+      "id": "rIg-9ksOr3s"
+    },
+    {
+      "title": "Optimización de variables de entorno en producción",
+      "description": "Se requiere migrar las llaves de configuración expuestas en el frontend hacia un archivo .env seguro para evitar fugas de credenciales.",
+      "status": "in-progress",
+      "priority": "medium",
+      "createdBy": "admin-global",
+      "assignedTo": "juan",
+      "clientName": "cliente-02",
+      "id": "l14ZkV1cliU"
+    },
+    {
+      "title": "Error visual en el renderizado de tarjetas (SASS)",
+      "description": "Las tarjetas de los tickets pierden el alineamiento horizontal cuando la descripción supera los 150 caracteres. Se necesita un truncado de texto o scroll.",
+      "status": "solved",
+      "priority": "low",
+      "createdBy": "tecnico-ana",
+      "assignedTo": "ana",
+      "clientName": "cliente-02",
+      "id": "xYZu1ODQ1eU"
+    },
+    {
+      "title": "Implementar limpieza de nodos en cambio de ruta",
+      "description": "Investigar si la función removeChild está liberando correctamente la memoria del navegador al alternar repetidamente entre vistas de la SPA.",
+      "status": "pending",
+      "priority": "high",
+      "createdBy": "admin-global",
+      "assignedTo": null,
+      "clientName": "cliente-02",
+      "id": "l9zz8n4u_MY"
+    },
+    {
+      "title": "Fuga de estilos en modo oscuro",
+      "description": "Al cambiar de vista mediante el enrutador, algunas variables de SASS del background no se actualizan correctamente y mantienen el fondo beige claro.",
+      "status": "in-progress",
+      "priority": "low",
+      "createdBy": "cliente-02",
+      "assignedTo": "juan",
+      "clientName": "cliente-01",
+      "id": "yRWlig8_3RM"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

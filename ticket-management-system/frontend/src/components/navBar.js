@@ -1,6 +1,6 @@
 export function navBar(){
     return `
-        <header class="border-b border-blue-100 bg-white/90 backdrop-blur">
+    <header class="border-b border-blue-100 bg-white/90 backdrop-blur">
         <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
             <div class="text-xl font-black text-blue-900">TMS-SPA</div>
             <nav class="hidden gap-3 md:flex">

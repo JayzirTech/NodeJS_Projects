@@ -1,6 +1,14 @@
 import { navBar } from "../components/navBar";
+import { loadApiTickets } from "../services/apiTickets";
 
-export function dashboard(){
+export async function dashboard(){
+  const tickets = await loadApiTickets()
+  
+  const ticketsTotal = tickets.length
+  const ticketsPending = tickets.filter(ticket => ticket.status === 'pending').length
+  const ticketsEnProgress = tickets.filter(ticket => ticket.status === 'in-progress').length
+  const ticketsSolved = tickets.filter(ticket => ticket.status === 'solved').length
+
   return `
   ${navBar()}
   <div class="min-h-screen bg-sky-50 text-slate-800"> 
@@ -11,18 +19,22 @@ export function dashboard(){
         <p class="mt-4 max-w-2xl text-blue-50">Resumen general del trabajo del usuario, accesos rapidos y estado actual de productividad.</p>
       </section>
 
-      <section class="mt-8 grid gap-4 md:grid-cols-3">
+      <section class="mt-8 grid gap-4 md:grid-cols-4">
         <article class="rounded-3xl border border-blue-100 bg-white p-6 shadow-lg shadow-blue-50">
-          <p class="text-sm text-slate-500">Tareas activas</p>
-          <p class="mt-3 text-4xl font-black text-blue-700">12</p>
+          <p class="text-sm text-slate-500">En proceso</p>
+          <p class="mt-3 text-4xl font-black text-blue-700">${ticketsEnProgress}</p>
         </article>
         <article class="rounded-3xl border border-blue-100 bg-white p-6 shadow-lg shadow-blue-50">
-          <p class="text-sm text-slate-500">Completadas</p>
-          <p class="mt-3 text-4xl font-black text-blue-700">28</p>
+          <p class="text-sm text-slate-500">Pendientes</p>
+          <p class="mt-3 text-4xl font-black text-blue-700">${ticketsPending}</p>
         </article>
         <article class="rounded-3xl border border-blue-100 bg-white p-6 shadow-lg shadow-blue-50">
-          <p class="text-sm text-slate-500">Pendientes hoy</p>
-          <p class="mt-3 text-4xl font-black text-blue-700">4</p>
+          <p class="text-sm text-slate-500">Resueltas</p>
+          <p class="mt-3 text-4xl font-black text-blue-700">${ticketsSolved}</p>
+        </article>
+        <article class="rounded-3xl border border-blue-100 bg-white p-6 shadow-lg shadow-blue-50">
+          <p class="text-sm text-slate-500">Total</p>
+          <p class="mt-3 text-4xl font-black text-blue-700">${ticketsTotal}</p>
         </article>
       </section>
 

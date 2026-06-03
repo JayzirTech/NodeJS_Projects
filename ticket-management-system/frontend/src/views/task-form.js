@@ -1,5 +1,5 @@
-export function taskForm(){
-  return `
+export function taskForm() {
+  const form = `
   <div class="min-h-screen bg-sky-50 text-slate-800">
     <main class="mx-auto max-w-5xl px-6 py-10">
       <section class="rounded-[2rem] border border-blue-100 bg-white p-8 shadow-xl shadow-blue-50">
@@ -7,7 +7,7 @@ export function taskForm(){
         <h1 class="mt-3 text-4xl font-black tracking-tight text-slate-900">Crear o editar tarea</h1>
         <p class="mt-4 max-w-2xl text-slate-600">Vista base para registrar una tarea nueva o actualizar una existente.</p>
 
-        <form class="mt-8 grid gap-5">
+        <form id="taskForm" class="mt-8 grid gap-5">
           <div>
             <label class="mb-2 block text-sm font-medium text-slate-700" for="title">Titulo</label>
             <input id="title" type="text" placeholder="Ej. Preparar proyecto final" class="w-full rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:border-blue-400 focus:outline-none" />
@@ -18,23 +18,42 @@ export function taskForm(){
             <textarea id="description" rows="5" placeholder="Describe la tarea..." class="w-full rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:border-blue-400 focus:outline-none"></textarea>
           </div>
 
+          <div class="grid gap-5 md:grid-cols-3">
+            <div>
+              <label class="mb-2 block text-sm font-medium text-slate-700" for="date">Tecnico</label>
+              <input id="technical" type="text" placeholder="Juan Perez" class="w-full rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:border-blue-400 focus:outline-none"></input>
+            </div>
+            <div>
+              <label class="mb-2 block text-sm font-medium text-slate-700" for="date">Creado por</label>
+              <input id="creator" type="text" placeholder="admin-global" class="w-full rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:border-blue-400 focus:outline-none"></input>
+            </div>
+            <div>
+              <label class="mb-2 block text-sm font-medium text-slate-700" for="date">Cliente</label>
+              <input id="client" type="text" placeholder="Jose Martinez" class="w-full rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:border-blue-400 focus:outline-none"></input>
+            </div>
+          </div>
+
           <div class="grid gap-5 md:grid-cols-2">
             <div>
               <label class="mb-2 block text-sm font-medium text-slate-700" for="status">Estado</label>
               <select id="status" class="w-full rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 text-slate-900 focus:border-blue-400 focus:outline-none">
-                <option>Pendiente</option>
-                <option>En progreso</option>
-                <option>Completada</option>
+                <option>pending</option>
+                <option>in-progress</option>
+                <option>solved</option>
               </select>
             </div>
             <div>
-              <label class="mb-2 block text-sm font-medium text-slate-700" for="date">Fecha limite</label>
-              <input id="date" type="date" class="w-full rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 text-slate-900 focus:border-blue-400 focus:outline-none" />
+              <label class="mb-2 block text-sm font-medium text-slate-700" for="status">Prioridad</label>
+              <select id="priority" class="w-full rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 text-slate-900 focus:border-blue-400 focus:outline-none">
+                <option>high</option>
+                <option>medium</option>
+                <option>low</option>
+              </select>
             </div>
           </div>
 
           <div class="flex flex-col gap-3 pt-2 sm:flex-row">
-            <a class="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-5 py-3 text-sm font-bold text-white hover:bg-blue-500" href="/tasks">Guardar tarea</a>
+            <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-5 py-3 text-sm font-bold text-white hover:bg-blue-500 cursor-pointer" href="/tasks">Guardar tarea</button>
             <a class="inline-flex items-center justify-center rounded-2xl border border-blue-200 bg-white px-5 py-3 text-sm font-bold text-blue-700 hover:bg-blue-50" href="/tasks">Cancelar</a>
           </div>
         </form>
@@ -42,5 +61,6 @@ export function taskForm(){
     </main>
   </div>
   `
+
+  return form
 }
-  
