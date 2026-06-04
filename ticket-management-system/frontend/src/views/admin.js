@@ -1,6 +1,27 @@
 import { navBar } from "../components/navBar";
+import { loadApiUsers } from "../services/apiUsers";
 
-export function admin(){
+export async function admin(){
+
+  const users = await loadApiUsers()
+  
+  const usersRegisterd = users.map(user => `
+    <div class="rounded-2xl bg-blue-50 p-4">
+      <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p class="font-bold text-slate-900">${user.name}</p>
+          <p class="text-sm text-slate-500">${user.email}</p>
+        </div>
+        <div class="flex gap-2">
+          <button id="deleteUser" data-id="${user.id}" class="rounded-full border border-blue-200 px-3 py-1 text-xs font-semibold text-blue-700 hover:bg-red-100 cursor-pointer">Eliminar</button>
+          <button id="editRole"  data-id="${user.id}" class="rounded-full border border-blue-200 px-3 py-1 text-xs font-semibold text-white-700 hover:bg-blue-100 cursor-pointer">
+            ${user.role}
+          </button>
+        </div>
+      </div>
+    </div>
+    `).join('')
+  
   return `
   ${navBar()}
   <div class="min-h-screen bg-sky-50 text-slate-800">
@@ -24,33 +45,9 @@ export function admin(){
         <article class="rounded-3xl border border-blue-100 bg-white p-6 shadow-lg shadow-blue-50">
           <div class="flex items-center justify-between">
             <h2 class="text-xl font-bold text-slate-900">Usuarios</h2>
-            <span class="rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-blue-700">Mockup</span>
           </div>
           <div class="mt-5 space-y-4">
-            <div class="rounded-2xl bg-blue-50 p-4">
-              <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-                <div>
-                  <p class="font-bold text-slate-900">Ana Torres</p>
-                  <p class="text-sm text-slate-500">ana@taskflow.com</p>
-                </div>
-                <div class="flex gap-2">
-                  <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-blue-700">USER</span>
-                  <a class="rounded-full border border-blue-200 px-3 py-1 text-xs font-semibold text-blue-700 hover:bg-white" href="/admin">Editar rol</a>
-                </div>
-              </div>
-            </div>
-            <div class="rounded-2xl bg-blue-50 p-4">
-              <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-                <div>
-                  <p class="font-bold text-slate-900">Carlos Ruiz</p>
-                  <p class="text-sm text-slate-500">carlos@taskflow.com</p>
-                </div>
-                <div class="flex gap-2">
-                  <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-blue-700">ADMIN</span>
-                  <a class="rounded-full border border-blue-200 px-3 py-1 text-xs font-semibold text-blue-700 hover:bg-white" href="/admin">Editar rol</a>
-                </div>
-              </div>
-            </div>
+          ${usersRegisterd}
           </div>
         </article>
       </section>

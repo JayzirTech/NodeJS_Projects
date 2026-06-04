@@ -1,6 +1,7 @@
 import { router, renderRoutes } from "../router/router"
 import { closeEditModal, showEditModal } from "../utils/editModal"
 import { deleteApiTicket, loadApiTickets, saveApiTicket, updateApiTicket } from "./apiTickets"
+import { deleteApiUser, loadApiUsers, saveApiUser, updateApiUser } from "./apiUsers"
 import { render } from "./render"
 
 export async function listener() {
@@ -58,6 +59,20 @@ export async function listener() {
                 }
             }
         }
+
+        // Listener el botón de eliminar usuario
+        const deleteUser = e.target.closest('#deleteUser')
+
+        if (deleteUser) {
+            const id = deleteUser.dataset.id
+
+            if (id) {
+                if (confirm('Estas seguro de eliminar el usuario?')) {
+                    await deleteApiUser(id)
+                    await router()
+                }
+            }
+        }
     })
 
     // Listener para enviar el formulario de edición
@@ -98,6 +113,94 @@ export async function listener() {
                 newTicket.assignedTo = document.getElementById('technical').value;
                 await saveApiTicket(newTicket);
                 history.pushState({}, '', '/tasks');
+                await router()
+            }
+        }
+
+        // Registro de nuevo usuario
+        if (e.target.id === 'register-form') {
+            const newUser = {
+                'name': document.getElementById('register-name').value,
+                'lastName': document.getElementById('register-lastname').value,
+                'email': document.getElementById('register-email').value,
+                'password': document.getElementById('register-password').value,
+                'role': null
+            }
+            // Verificar si todos los campos estan vacios
+            const emptyFields = Object.values(newUser).some(value => value === '');
+            if(emptyFields) {
+                alert('Todos los campos son obligatorios');
+            } else {
+                // Cargar los usuarios que estan en la API
+                const usersApi = await loadApiUsers()
+
+                // Buscar si el email ya existe en la API
+                const userExists = usersApi.find(user => user.email === newUser.email)
+                if (userExists) {
+                    alert('El email ya esta registrado')
+                } else {
+                    await saveApiUser(newUser)
+                    history.pushState({}, '', '/login')
+                    await router()
+                }
+            }
+        }
+
+        // Login de usuario
+        if (e.target.id === 'login-form') {
+            const userLogin = {
+                'email': document.getElementById('email').value,
+                'password': document.getElementById('password').value,
+            }
+
+            // Verificar si todos los campos estan vacios
+            const emptyFields = Object.values(userLogin).some(value => value === '');
+            if(emptyFields) {
+                alert('Todos los campos son obligatorios'); // Si todos los campos estan vacios, mandar un alert
+
+            } else {
+                const userApi = await loadApiUsers() // Cargar los usuarios que estan en la API
+
+                // Busca si el email y la contraseña son correctos
+                const userExists = userApi.find(user => user.email === userLogin.email && user.password === userLogin.password)
+
+                // Si el email y la contraseña son correctos, guarda el usuario en el localStorage y redirige a la vista de dashboard
+                if (userExists) {
+                    const userLogged = {
+                        'name': userExists.name,
+                        'lastName': userExists.lastName,
+                        'role': userExists.role,
+                        'email': userExists.email,
+                        'id': userExists.id
+                    }
+                    localStorage.setItem('userLogged', JSON.stringify(userLogged))
+                    history.pushState({}, '', '/dashboard')
+                    await router()
+                } else {
+                    alert('Email o contraseña incorrectos') // Si el email y la contraseña no son correctos, mandar un alert
+                }
+                
+            }
+        }
+
+        // Actualiza usuario
+        if (e.target.id === 'profile-form') {
+            const userID = document.getElementById('profile-form').dataset.id
+
+            const userUpdate = {
+                'name': document.getElementById('name-new').value,
+                'lastName': document.getElementById('lastName-new').value,
+                'email': document.getElementById('profile-email-new').value,
+                'password': document.getElementById('password-new').value
+            }
+
+            // Verificar si todos los campos estan vacios
+            const emptyFields = Object.values(userUpdate).some(value => value === '');
+            if(emptyFields) {
+                alert('Todos los campos son obligatorios'); // Si todos los campos estan vacios, mandar un alert
+            } else {
+                await updateApiUser(userID, userUpdate)
+                history.pushState({}, '', '/dashboard')
                 await router()
             }
         }

@@ -9,13 +9,15 @@ export async function dashboard(){
   const ticketsEnProgress = tickets.filter(ticket => ticket.status === 'in-progress').length
   const ticketsSolved = tickets.filter(ticket => ticket.status === 'solved').length
 
+  const user= JSON.parse(localStorage.getItem('userLogged'))  
+
   return `
   ${navBar()}
   <div class="min-h-screen bg-sky-50 text-slate-800"> 
     <main class="mx-auto max-w-6xl px-6 py-10">
       <section class="rounded-[2rem] bg-blue-600 px-8 py-10 text-white shadow-xl shadow-blue-100">
         <p class="text-sm font-semibold uppercase tracking-[0.3em] text-blue-100">Dashboard principal</p>
-        <h1 class="mt-3 text-4xl font-black tracking-tight">Bienvenida, Ana.</h1>
+        <h1 class="mt-3 text-4xl font-black tracking-tight">Bienvenida, ${user.name}.</h1>
         <p class="mt-4 max-w-2xl text-blue-50">Resumen general del trabajo del usuario, accesos rapidos y estado actual de productividad.</p>
       </section>
 
