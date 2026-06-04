@@ -22,7 +22,6 @@ export async function listener() {
 
             // Obtiene el href del enlace
             const href = link.getAttribute('href')
-            if (!href) { alert('No hay href'); return }   // Si no hay href, sale
 
             // Obtiene la vista correspondiente. Si no existe, muestra la vista 404
             let view = routes[href] || routes['not-found']
