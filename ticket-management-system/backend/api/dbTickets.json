@@ -6,7 +6,7 @@
       "status": "pending",
       "priority": "high",
       "createdBy": "cliente-01",
-      "assignedTo": null,
+      "assignedTo": "null",
       "clientName": "cliente-01",
       "id": "rIg-9ksOr3s"
     },
@@ -49,6 +49,26 @@
       "assignedTo": "juan",
       "clientName": "cliente-01",
       "id": "yRWlig8_3RM"
+    },
+    {
+      "title": "Hacer login",
+      "description": "Debes hacer primero el tema de registrarse, validar si el que se está intentando registrar ya está registrado, sino, crearle el usuario\nPara el login, debes verificar que el usuario y contraseña coincidan con la API. Dar alerta si sí o si no\nUtiliza la dependencia byScrypt para encriptar las contraseñas",
+      "assignedTo": "Jayzir Martinez",
+      "createdBy": "Admin-Global",
+      "clientName": "RIWI",
+      "status": "pending",
+      "priority": "high",
+      "id": "yz0mFMLl7Ik"
+    },
+    {
+      "title": "Mostrar mensaje de api apagada",
+      "description": "Sería bueno que se le mostrara al usuario de que el servidor está fuera de línea",
+      "createdBy": "Admin-Global",
+      "clientName": "RIWI",
+      "status": "pending",
+      "priority": "low",
+      "assignedTo": "Jayzir Martinez",
+      "id": "kAOix4cWoIE"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

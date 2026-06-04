@@ -15,7 +15,7 @@ export function admin(){
         <article class="rounded-3xl border border-blue-100 bg-white p-6 shadow-lg shadow-blue-50">
           <h2 class="text-xl font-bold text-slate-900">Acciones rapidas</h2>
           <div class="mt-5 grid gap-4">
-            <a class="rounded-2xl bg-blue-50 px-5 py-4 text-sm font-semibold text-blue-700 hover:bg-blue-100" href="/tasks">Ver todas las tareas</a>
+            <a class="rounded-2xl bg-blue-50 px-5 py-4 text-sm font-semibold text-blue-700 hover:bg-blue-100" href="/tasks">Ver todas los tickets</a>
             <a class="rounded-2xl bg-blue-50 px-5 py-4 text-sm font-semibold text-blue-700 hover:bg-blue-100" href="/admin">Gestionar usuarios</a>
             <a class="rounded-2xl bg-blue-50 px-5 py-4 text-sm font-semibold text-blue-700 hover:bg-blue-100" href="/dashboard">Volver al dashboard</a>
           </div>

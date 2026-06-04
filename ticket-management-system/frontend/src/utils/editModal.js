@@ -1,5 +1,3 @@
-import { updateApiTicket } from "../services/apiTickets"
-
 export function showEditModal(task) {
   // Crear overlay borroso
   const overlay = document.createElement('div');
@@ -13,23 +11,23 @@ export function showEditModal(task) {
 
   modal.innerHTML = `
 <div class="flex items-center justify-between mb-6">
-  <h2 class="text-2xl font-bold text-slate-900">Editar Tarea</h2>
+  <h2 class="text-2xl font-bold text-slate-900">Editar Ticket</h2>
   <button id="closeModal" class="text-slate-500 hover:text-slate-700 text-2xl leading-none">&times;</button>
 </div>
 
-<form id="editForm" class="space-y-4">
+<form id="editForm" data-id="${task.id}" class="space-y-4">
   <div>
     <label class="block text-sm font-semibold text-slate-700 mb-2">Título</label>
     <input type="text" id="editTitle" value="${task.title}"
       class="w-full px-4 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-      placeholder="Título de la tarea" />
+      placeholder="Título del ticket" />
   </div>
 
   <div>
     <label class="block text-sm font-semibold text-slate-700 mb-2">Descripción</label>
     <textarea id="editDescription"
       class="w-full px-4 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
-      rows="4" placeholder="Descripción de la tarea">${task.description}</textarea>
+      rows="4" placeholder="Descripción del ticket">${task.description}</textarea>
   </div>
 
   <div>
@@ -82,27 +80,6 @@ export function showEditModal(task) {
 
   // Prevenir que el clic dentro del modal cierre la ventana
   modal.addEventListener('click', (e) => e.stopPropagation());
-
-  // Listener para enviar el formulario
-  document.getElementById('editForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    if(!confirm('Estas seguro de guardar los cambios?')) return
-
-    const updatedTask = {
-      title: document.getElementById('editTitle').value,
-      description: document.getElementById('editDescription').value,
-      status: document.getElementById('editStatus').value,
-      priority: document.getElementById('editPriority').value,
-      assignedTo: document.getElementById('editAssignedTo').value,
-    };
-
-    await updateApiTicket(task.id, updatedTask);
-    closeEditModal();
-
-    // Refresca la página para ver los cambios
-    window.location.reload();
-  });
 }
 
 export function closeEditModal() {

@@ -5,11 +5,11 @@ export function home(){
         <div>
           <p class="inline-flex rounded-full bg-blue-100 px-4 py-2 text-sm font-semibold text-blue-700">Organiza tu trabajo con calma</p>
           <h1 class="mt-6 text-5xl font-black tracking-tight text-slate-900 sm:text-6xl">
-            Una plataforma clara para gestionar tareas, usuarios y productividad.
+            Una plataforma clara para gestionar tickets, usuarios y productividad.
           </h1>
           <p class="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
             TMS-SPA presenta el recorrido principal del proyecto con una interfaz uniforme, amable y lista para convertirse
-            luego en una SPA real con autenticacion, roles, permisos y CRUD de tareas.
+            luego en una SPA real con autenticacion, roles, permisos y CRUD de tickets.
           </p>
           <div class="mt-8 flex flex-col gap-3 sm:flex-row">
             <a class="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-blue-200 hover:bg-blue-500" href="/login">Iniciar sesion</a>
@@ -25,7 +25,7 @@ export function home(){
               <p class="mt-2 text-sm text-slate-600">Resumen principal de productividad.</p>
             </a>
             <a class="rounded-3xl bg-sky-50 p-5 hover:bg-sky-100" href="/tasks">
-              <p class="text-sm font-semibold text-blue-600">Mis tareas</p>
+              <p class="text-sm font-semibold text-blue-600">Mis tickets</p>
               <p class="mt-2 text-sm text-slate-600">CRUD principal del usuario.</p>
             </a>
             <a class="rounded-3xl bg-sky-50 p-5 hover:bg-sky-100" href="/profile">

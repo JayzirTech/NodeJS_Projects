@@ -42,12 +42,12 @@ export async function dashboard(){
         <article class="rounded-3xl border border-blue-100 bg-white p-6 shadow-lg shadow-blue-50">
           <div class="flex items-center justify-between">
             <h2 class="text-xl font-bold text-slate-900">Accesos rapidos</h2>
-            <a class="text-sm font-semibold text-blue-700 hover:text-blue-600" href="/tasks">Ver tareas</a>
+            <a class="text-sm font-semibold text-blue-700 hover:text-blue-600" href="/tasks">Ver Tickets</a>
           </div>
           <div class="mt-6 grid gap-4 sm:grid-cols-2">
             <a class="rounded-3xl bg-blue-50 p-5 hover:bg-blue-100" href="/tasksForm">
               <p class="text-sm font-semibold text-blue-600">Crear</p>
-              <h3 class="mt-2 text-lg font-bold text-slate-900">Nueva tarea</h3>
+              <h3 class="mt-2 text-lg font-bold text-slate-900">Nuevo ticket</h3>
             </a>
             <a class="rounded-3xl bg-blue-50 p-5 hover:bg-blue-100" href="/profile">
               <p class="text-sm font-semibold text-blue-600">Cuenta</p>

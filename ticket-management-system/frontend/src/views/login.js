@@ -12,7 +12,7 @@ export function login(){
           <div class="mt-8">
             <p class="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">Inicio de sesion</p>
             <h1 class="mt-2 text-4xl font-black tracking-tight text-slate-900">Bienvenido de nuevo</h1>
-            <p class="mt-4 text-slate-600">Ingresa a tu espacio de trabajo y continua organizando tus tareas.</p>
+            <p class="mt-4 text-slate-600">Ingresa a tu espacio de trabajo y continua organizando tus tickets.</p>
           </div>
 
           <form class="mt-8 grid gap-5">
@@ -37,7 +37,7 @@ export function login(){
           <h2 class="mt-4 text-5xl font-black tracking-tight">Una experiencia limpia para aprender una primera SPA.</h2>
           <ul class="mt-8 space-y-4 text-lg leading-8 text-blue-50">
             <li>Autenticacion simplificada con localStorage.</li>
-            <li>Gestion de tareas con enfoque claro y visual.</li>
+            <li>Gestion de tickets con enfoque claro y visual.</li>
             <li>Roles y permisos entendibles desde el primer recorrido.</li>
           </ul>
         </div>
