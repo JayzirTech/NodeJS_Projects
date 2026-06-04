@@ -1,13 +1,4 @@
 {
-  "users": [
-    {
-      "name": "Jayzir",
-      "lastName": "Martinez",
-      "email": "jmartinez@gmail.com",
-      "password": "$2b$10$Ugl1YOvBygy2YNcONqvxB.026F0lw9ElrQAFUTZgUh7TMvTupUHIu",
-      "role": null,
-      "id": "LBDRlW4HH84"
-    }
-  ],
+  "users": [],
   "$schema": "./node_modules/json-server/schema.json"
 }

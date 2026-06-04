@@ -12,9 +12,9 @@ export function navBar(){
                     href="/profile">Perfil</a>
                 <a class="rounded-full px-4 py-2 text-sm font-semibold text-slate-600 hover:bg-blue-50 hover:text-blue-700"
                     href="/admin">Admin</a>
-                <a class="rounded-full px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-50"
+                <button class="rounded-full px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-50 cursor-pointer"
                     id="logout"
-                    href="/login">Logout</a>
+                    >Logout</button>
             </nav>
         </div>
     </header>
