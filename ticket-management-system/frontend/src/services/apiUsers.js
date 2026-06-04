@@ -1,23 +1,3 @@
-// const endPointTickets = "http://localhost:30001/tickets"
-
-// // Función para consumir la API de tickets
-// export async function loadApiTickets() {
-//     try {
-//         const response = await fetch(`${endPointTickets}`);
-
-//         if (!response.ok) {
-//             throw new Error(`HTTP error! status: ${response.status}`);
-//         }
-
-//         const data = await response.json();
-        
-//         return data
-
-//     } catch (error) {
-//         console.error("❌ API consumption failed:", error);
-//     }
-// }
-
 const endPointUsers = "http://localhost:3001/users"
 
 // Función para consumir la API de tickets
@@ -96,40 +76,3 @@ export async function deleteApiUser(id) {
         console.error("❌ API consumption failed:", error);
     }
 }
-// export async function deleteApiTicket(id) {
-//     try {
-//         const response = await fetch(`${endPointTickets}/${id}`, {
-//             method: "DELETE",
-//         })
-
-//         if (!response.ok) {
-//             throw new Error(`HTTP error! status: ${response.status}`);
-//         }
-
-//         alert("Ticket eliminado exitosamente")
-
-//     } catch (error) {
-//         console.error("❌ API consumption failed:", error);
-//     }
-// }
-
-// export async function updateApiTicket(id, data) {
-//     try {
-//         const response = await fetch(`${endPointTickets}/${id}`, {
-//             method: "PATCH",
-//             headers: {
-//                 "Content-Type": "application/json",
-//             },
-//             body: JSON.stringify(data),
-//         })
-
-//         if (!response.ok) {
-//             throw new Error(`HTTP error! status: ${response.status}`);
-//         }
-
-//         alert("Ticket actualizado exitosamente")
-
-//     } catch (error) {
-//         console.error("❌ API consumption failed:", error);
-//     }
-// }

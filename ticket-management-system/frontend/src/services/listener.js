@@ -1,7 +1,10 @@
 import { router, renderRoutes } from "../router/router"
-import { closeEditModal, showEditModal } from "../utils/editModal"
+import { closeEditRolModal, editRol } from "../utils/editRolModal"
+import { closeEditModal, showEditModal } from "../utils/editTicketModal"
 import { deleteApiTicket, loadApiTickets, saveApiTicket, updateApiTicket } from "./apiTickets"
 import { deleteApiUser, loadApiUsers, saveApiUser, updateApiUser } from "./apiUsers"
+import { comparePassword } from "./comparePassword"
+import { hashPassword } from "./hashPassword"
 import { render } from "./render"
 
 export async function listener() {
@@ -60,7 +63,7 @@ export async function listener() {
             }
         }
 
-        // Listener el botón de eliminar usuario
+        // Eliminar usuario
         const deleteUser = e.target.closest('#deleteUser')
 
         if (deleteUser) {
@@ -71,6 +74,26 @@ export async function listener() {
                     await deleteApiUser(id)
                     await router()
                 }
+            }
+        }
+
+        // Editar rol
+        const editRole = e.target.closest('#editRole')
+
+        if (editRole) {
+            const id = editRole.dataset.id
+            const allUsers = await loadApiUsers()
+            const userID = allUsers.find(user => user.id == id)
+            editRol(userID.id, userID.role)
+        }
+
+        // Cerrar sesión
+        const logout = e.target.closest('#logout')
+        if (logout) {
+            if (confirm('Estas seguro de cerrar sesion?')) {
+                localStorage.removeItem('userLogged')
+                history.pushState({}, '', '/login')
+                await router()
             }
         }
     })
@@ -96,7 +119,7 @@ export async function listener() {
             }
         }
 
-        if(e.target.id === 'taskForm') {
+        if (e.target.id === 'taskForm') {
             const newTicket = {
                 title: document.getElementById('title').value,
                 description: document.getElementById('description').value,
@@ -107,7 +130,7 @@ export async function listener() {
             };
             // Verificar si todos los campos estan vacios menos el "assignedTo"
             const emptyFields = Object.values(newTicket).some(value => value === '');
-            if(emptyFields) {
+            if (emptyFields) {
                 alert('Todos los campos son obligatorios');
             } else {
                 newTicket.assignedTo = document.getElementById('technical').value;
@@ -123,12 +146,12 @@ export async function listener() {
                 'name': document.getElementById('register-name').value,
                 'lastName': document.getElementById('register-lastname').value,
                 'email': document.getElementById('register-email').value,
-                'password': document.getElementById('register-password').value,
+                'password': await hashPassword(document.getElementById('register-password').value),
                 'role': null
             }
             // Verificar si todos los campos estan vacios
             const emptyFields = Object.values(newUser).some(value => value === '');
-            if(emptyFields) {
+            if (emptyFields) {
                 alert('Todos los campos son obligatorios');
             } else {
                 // Cargar los usuarios que estan en la API
@@ -155,14 +178,26 @@ export async function listener() {
 
             // Verificar si todos los campos estan vacios
             const emptyFields = Object.values(userLogin).some(value => value === '');
-            if(emptyFields) {
+            if (emptyFields) {
                 alert('Todos los campos son obligatorios'); // Si todos los campos estan vacios, mandar un alert
 
             } else {
                 const userApi = await loadApiUsers() // Cargar los usuarios que estan en la API
 
                 // Busca si el email y la contraseña son correctos
-                const userExists = userApi.find(user => user.email === userLogin.email && user.password === userLogin.password)
+                let userExists = null;
+                
+                for (const user of userApi) {
+                    if (user.email === userLogin.email) {
+                        // Solo si el email coincide, hacemos el gasto de comparar la contraseña
+                        const passwordMatch = await comparePassword(userLogin.password, user.password);
+
+                        if (passwordMatch) {
+                            userExists = user; // Guardamos el usuario que encontramos
+                            break; // Rompemos el bucle de inmediato porque ya lo encontramos
+                        }
+                    }
+                }
 
                 // Si el email y la contraseña son correctos, guarda el usuario en el localStorage y redirige a la vista de dashboard
                 if (userExists) {
@@ -179,7 +214,7 @@ export async function listener() {
                 } else {
                     alert('Email o contraseña incorrectos') // Si el email y la contraseña no son correctos, mandar un alert
                 }
-                
+
             }
         }
 
@@ -196,13 +231,26 @@ export async function listener() {
 
             // Verificar si todos los campos estan vacios
             const emptyFields = Object.values(userUpdate).some(value => value === '');
-            if(emptyFields) {
+            if (emptyFields) {
                 alert('Todos los campos son obligatorios'); // Si todos los campos estan vacios, mandar un alert
             } else {
                 await updateApiUser(userID, userUpdate)
                 history.pushState({}, '', '/dashboard')
                 await router()
             }
+        }
+
+        // Editar rol
+        if (e.target.id === 'editRolForm') {
+            const roleID = document.getElementById('editRolForm').dataset.id
+
+            const roleUpdate = {
+                'role': document.getElementById('editRol').value
+            }
+            await updateApiUser(roleID, roleUpdate)
+            closeEditRolModal()
+            await router()
+
         }
     })
 

@@ -12,7 +12,7 @@ export function showEditModal(task) {
   modal.innerHTML = `
 <div class="flex items-center justify-between mb-6">
   <h2 class="text-2xl font-bold text-slate-900">Editar Ticket</h2>
-  <button id="closeModal" class="text-slate-500 hover:text-slate-700 text-2xl leading-none">&times;</button>
+  <button id="closeModal" class="text-slate-500 hover:text-slate-700 text-2xl leading-none cursor-pointer">&times;</button>
 </div>
 
 <form id="editForm" data-id="${task.id}" class="space-y-4">
@@ -59,11 +59,11 @@ export function showEditModal(task) {
 
   <div class="flex gap-3 pt-6">
     <button type="submit"
-      class="flex-1 bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
+      class="flex-1 bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition cursor-pointer">
       Guardar
     </button>
     <button type="button" id="cancelModal"
-      class="flex-1 bg-slate-200 text-slate-700 px-4 py-2 rounded-lg font-semibold hover:bg-slate-300 transition">
+      class="flex-1 bg-slate-200 text-slate-700 px-4 py-2 rounded-lg font-semibold hover:bg-slate-300 transition cursor-pointer">
       Cancelar
     </button>
   </div>

@@ -15,7 +15,7 @@ export async function admin(){
         <div class="flex gap-2">
           <button id="deleteUser" data-id="${user.id}" class="rounded-full border border-blue-200 px-3 py-1 text-xs font-semibold text-blue-700 hover:bg-red-100 cursor-pointer">Eliminar</button>
           <button id="editRole"  data-id="${user.id}" class="rounded-full border border-blue-200 px-3 py-1 text-xs font-semibold text-white-700 hover:bg-blue-100 cursor-pointer">
-            ${user.role}
+            ${user.role === 'admin' ? 'Administrador' : user.role === 'technical' ? 'Técnico' : 'Cliente'}
           </button>
         </div>
       </div>

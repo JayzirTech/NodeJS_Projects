@@ -1,28 +1,12 @@
 {
   "users": [
     {
-      "name": "Carlos",
-      "lastName": "Mendoza",
-      "email": "carlos.mendoza@ticketflow.com",
-      "role": "admin",
-      "password": "1234",
-      "id": "XHndhk6xlBE"
-    },
-    {
-      "name": "Juan",
-      "lastName": "Perez",
-      "email": "juan.perez@ticketflow.com",
-      "role": "technical",
-      "password": "1234",
-      "id": "XCA2oRErUpc"
-    },
-    {
-      "name": "Ana",
-      "lastName": "Gómez",
-      "email": "ana.gomez@ticketflow.com",
-      "role": "client",
-      "password": "1234",
-      "id": "sMa0shZY5wI"
+      "name": "Jayzir",
+      "lastName": "Martinez",
+      "email": "jmartinez@gmail.com",
+      "password": "$2b$10$Ugl1YOvBygy2YNcONqvxB.026F0lw9ElrQAFUTZgUh7TMvTupUHIu",
+      "role": null,
+      "id": "LBDRlW4HH84"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
